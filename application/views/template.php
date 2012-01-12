@@ -165,6 +165,22 @@ else if($isAdminDirector){
 
     <!-- priviledges ends -->
 
+
+    <!-- GRN starts -->
+    <li>
+        <a class="sf-with-ul" style="cursor: pointer;">Good Receiving</a>
+
+        <ul>
+            <li>
+                <a href="<?php echo base_url(); ?>index.php/GRN/GRNAdministration/viewPurchaseOrderList" class="sf-with-ul">view Purchase Orders</a>
+            </li>
+
+        </ul>
+    </li>
+
+    <!--GRN ends -->
+
+
 <li>
 <a class="sf-with-ul" style="cursor: pointer;">Employees</a>
 

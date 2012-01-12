@@ -18,6 +18,7 @@ class AssignedPriviledgeModel extends CI_Model {
     }
 
 
+
     function getLevel_Privilege_Code() { return $this->Level_Privilege_Code; }
     function getLevel_Code() { return $this->Level_Code; }
     function getDepartment_Code() { return $this->Department_Code; }

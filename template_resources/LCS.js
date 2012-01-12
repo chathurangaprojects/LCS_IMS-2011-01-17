@@ -215,9 +215,6 @@ $().ready(function() {
 
 
 
-
-
-
 //user edit start
 
 

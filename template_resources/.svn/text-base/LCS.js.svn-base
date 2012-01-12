@@ -1789,8 +1789,7 @@ function retrieve_priviledges(){
             data: "departmentCode="+departmentCode+"&levelCode="+levelCode,
             success: function(msg)
             {
-                 $('#level_priviledges').html(msg);
-                //  window.location("http://www.google.lk");
+                $('#level_priviledges').html(msg);
 
             }//success
         });//ajax
@@ -1823,10 +1822,72 @@ function synchronize_accordion(){
 
 function moderate_priviledge(masterCode,subCode){
 
+    var sample =$('#priviledge_given').val();
 
-    //alert(masterCode+" sub "+subCode);
+    var departmentCode = $('#Department_Code').val();
+    var levelCode = $('#Level_Code').val();
+
+    var priviledge_modetation_status =$('#priviledge_given'+masterCode+"_"+subCode).val();
+
+
+    //clear the user notification message
+
+    $('#user_notification_message').html('');
+
+    if(departmentCode!="" && levelCode!=""){
+
+        //assigning and removing the priviledges
+        var message ="";
+
+        if(priviledge_modetation_status=='on'){
+
+            message="Are you sure to Assign the requested Privilege for the Department and level Selected?"
+        }
+        else if(priviledge_modetation_status=='off'){
+
+            message="Are you sure to remove the requested Privilege from the Department and level Selected?"
+
+        }
+
+
+        var confirmation_status=confirm(message);
+
+
+        if(confirmation_status){
+
+            $.ajax({
+                type: "POST",
+                url: base_url+'index.php/Priviledge/PriviledgeAdministration/moderateLevelPriviledges',
+                data: "departmentCode="+departmentCode+"&levelCode="+levelCode+"&masterCode="+masterCode+"&subCode="+subCode,
+                success: function(msg)
+                {
+                    $('#user_notification_message').html(msg);
+                }//success
+            });//ajax
+
+        }//confirmation_status
+        else{
+
+            //not confirmed. therefore the checkbox should be selected/unselected to reflect the original value
+
+            if(priviledge_modetation_status=='off'){
+                //the user has unchecked the checked  checkbox. then he hasn't confirmed the operation. therefore it should be checked again
+                $('#priviledge_given'+masterCode+"_"+subCode).attr('checked',true);
+            }
+            else if(priviledge_modetation_status=='on'){
+                //the user has checked the unchecked  checkbox. then he hasn't confirmed the operation. therefore it should be unchecked again
+                $('#priviledge_given'+masterCode+"_"+subCode).attr('checked',false);
+            }
+
+        }//else not confirmed
+
+
+    }//if
 
 
 }//function
+
+
+
 
 
