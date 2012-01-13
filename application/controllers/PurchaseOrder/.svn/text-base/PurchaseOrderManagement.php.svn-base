@@ -762,7 +762,7 @@ class PurchaseOrderManagement extends CI_Controller
                 //setting up the data array
                 $data = array('PurchaseOrders'=>$purchaseOrders);
 
-                $this->template->setTitles('LankaCom Inventory Management System', 'Subsidiry of Singapoor Telecom', 'Purchase Orders', 'Your List of Purchase Orders...');
+                $this->template->setTitles('LankaCom Inventory Management System', 'Subsidiary of Singapore Telecom', 'Purchase Orders', 'Your List of Purchase Orders...');
 
                 $this->template->load('template', 'PurchaseOrder/viewPurchaseOrdersList',$data);
                 //$this->template->load('template', 'PurchaseOrder/viewPurchaseOrdersList');

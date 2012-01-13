@@ -103,14 +103,14 @@ class GRNAdministration extends CI_Controller
             $userPriviledgeModel->setDepartmentCode( $this->session->userdata('department'));
             $userPriviledgeModel->setPriviledgeCode(18);//priviledge 18 is for generating GRN for the Purchase Order
 
-            $hasPriviledges = $userPriviledgeModel->checkUserPriviledge($userPriviledgeModel);
+            $hasPriviledges=$userPriviledgeModel->checkUserPriviledge($userPriviledgeModel);
 
             if($hasPriviledges){
 
 
                 $this->template->setTitles('LankaCom Inventory Management System', 'Subsidiary of Singapore Telecom', 'Good Receive Note', 'GRN for Purchase Order...');
 
-                $this->template->load('template', 'GRN/GRNForPO');
+                $this->template->load('template', 'GRN/GoodReceiveNotice');
 
 
             }//hasPriviledges

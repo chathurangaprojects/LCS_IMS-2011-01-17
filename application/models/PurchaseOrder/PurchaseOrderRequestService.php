@@ -546,6 +546,15 @@ else{
 
 	 
  }//function
+
+
+
+
+
+ function isPurchaseOrderAvialableWithGivenStatus(){
+
+
+ }
  
  
  
